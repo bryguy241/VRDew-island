@@ -14,11 +14,23 @@ public class PlayerInput : MonoBehaviour
     public Vector3 hitPoint;
     private Quaternion targetRotation;
     float turnSpeed = 10;
+    public int hotbarSelected = 0;
+
+
+    private Transform sphere;
+    private float scale;
+
+    public HotBarInventory hotbarInventory;
+    public HeldItems heldItems;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         hitPoint = transform.forward;
+
+        //set up initial chosen item
+        heldItems.ActivateItem(0);
+        hotbarInventory.selectionIndicator.transform.position = hotbarInventory.HotBarButtons[0].transform.position;
     }
 
     // Update is called once per frame
@@ -69,5 +81,23 @@ public class PlayerInput : MonoBehaviour
             print(targetRotation);
         }
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
+
+        //HotBarSelection
+        if(Input.mouseScrollDelta.y != 0)
+        {
+            hotbarSelected = (hotbarSelected + (int)Input.mouseScrollDelta.y) % 8;
+            if (hotbarSelected == -1)
+                hotbarSelected = 7;
+            print(hotbarSelected);
+            hotbarInventory.selectionIndicator.transform.position = hotbarInventory.HotBarButtons[hotbarSelected].transform.position;
+            heldItems.ActivateItem(hotbarSelected);
+        }
+      //  hotbarInventory.selectionIndicator.transform.position = hotbarInventory.HotBarButtons[hotbarSelected].transform.position;
+       // heldItems.ActivateItem(hotbarSelected);
+     
+
     }
+
+
+
 }
