@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemComponent : MonoBehaviour
+public class ToolComponent : MonoBehaviour, ItemStruct
 {
-    public int salePrice= 100;
-    public bool placeable = false;
-    //public bool name
+    public string Name = "";
+    public int Tier = 1;
+
+    string ItemStruct.Name { get => Name; set => Name = value; }
+    int ItemStruct.Tier { get => Tier; set => Tier = value; }
     // Start is called before the first frame update
     void Start()
     {
