@@ -103,7 +103,13 @@ public class TileSystem : MonoBehaviour
         }
         else if(tileData.collectableID != "-1")
         {
+            if (collectable == null)
+            {
+              collectable =  Instantiate(Resources.Load<GameObject>("Collectables/" + tileData.collectableType), transform.position, Quaternion.identity, transform); //load in the crop
+           //     collectable.GetComponent<CollectableSystem>().ReadCollectableData(tileData.collectableID);
+           //@TODO Make collectableSystem class with its data and how to manage that. 
 
+            }
         }
         else if(tileData.treeID != "-1")
         {
@@ -134,6 +140,13 @@ public class TileSystem : MonoBehaviour
         }
 
     }
+    public void SpawnCollectable(string collecName)
+    {
+        collectable = Instantiate(Resources.Load<GameObject>("Collectables/" + collecName), transform.position, Quaternion.identity, transform); //load in the crop
+        tileData.collectableID = collectable.GetInstanceID() + "";
+        tileData.collectableType = collecName;
+
+    }
     public void CheckDestroyCrop()
     {
         if (crop != null)
@@ -147,6 +160,8 @@ public class TileSystem : MonoBehaviour
         TillTile();
 
     }
+
+
     public void PlantCrop(string plantName)
     {
         
@@ -154,6 +169,7 @@ public class TileSystem : MonoBehaviour
         tileData.cropID = "" + crop.gameObject.GetInstanceID();
         tileData.cropType = plantName;
         crop.GetComponent<CropSystem>().InitializeCrop();
+        crop.GetComponent<CropSystem>().parent = this;
         print("didnt error");
 
 
@@ -173,6 +189,33 @@ public class TileSystem : MonoBehaviour
         }
     }
 
+    public bool HarvestableTile()
+    {
+        if(tileData.collectableID != "-1")
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public ItemComponent HarvestCollectable()
+    {
+        ItemComponent ic = new ItemComponent();
+        // @TODO ic.Name = collectable.GetComponent<CollectableSystem>().collectableData.itemName;
+
+        ic.Name = "Temp";
+      
+
+        PlayerPrefs.DeleteKey(tileData.collectableID);
+        Destroy(collectable);
+
+        tileData.collectableID = "-1";
+        tileData.collectableType = "";
+        return ic;
+    }
+
+
     public void HitMe(string hitObj, int tier)
     {
         if (hitObj.Contains("Hoe"))
@@ -182,6 +225,7 @@ public class TileSystem : MonoBehaviour
        
 
             TillTile();
+
         }
         else if (hitObj.Contains("WoodAxe"))
         {

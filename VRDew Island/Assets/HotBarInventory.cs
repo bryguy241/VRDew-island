@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HotBarInventory : MonoBehaviour
 {
-    public List<Button> HotBarButtons = new List<Button>();
+    public Button[] HotBarButtons = new Button[8];
     public Image selectionIndicator;
 
     // Start is called before the first frame update

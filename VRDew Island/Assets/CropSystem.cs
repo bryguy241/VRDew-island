@@ -16,6 +16,8 @@ public class CropSystem : MonoBehaviour
     public GameObject SproutStage;
     public GameObject AlmostFullStage;
 
+    public TileSystem parent;
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,7 @@ public class CropSystem : MonoBehaviour
     {
         cropData = JsonUtility.FromJson<CropData>(PlayerPrefs.GetString(path));
         print("I have read my data sir: "+ PlayerPrefs.GetString(path));
+        parent = GetComponentInParent<TileSystem>();
         CheckGrowth();
 
 
@@ -68,7 +71,11 @@ public class CropSystem : MonoBehaviour
             SeedStage.gameObject.SetActive(false);
             SproutStage.gameObject.SetActive(false);
             AlmostFullStage.gameObject.SetActive(false);
-            crop = Instantiate(Resources.Load<GameObject>("Crops/" + tileData.cropType), transform.position, Quaternion.identity, transform);
+            parent.tileData.cropID = "-1";
+            parent.tileData.cropType = "";
+            parent.SpawnCollectable(cropData.collectableName);
+            PlayerPrefs.DeleteKey(parent.tileData.cropID);
+            Destroy(this);
 
 
             print("CREATE PRODUCE COLLECTABLE");

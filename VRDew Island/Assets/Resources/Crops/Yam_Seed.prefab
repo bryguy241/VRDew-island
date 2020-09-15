@@ -725,10 +725,11 @@ MonoBehaviour:
   cropID: 
   totalDays: 4
   currentDays: 0
-  produce: Yam_Collectable
+  collectableName: Yam_Collectable
   SeedStage: {fileID: 4746289654108254598}
   SproutStage: {fileID: 4615336376584804797}
   AlmostFullStage: {fileID: 1539354801432788584}
+  parent: {fileID: 0}
 --- !u!1 &8637166471884870360
 GameObject:
   m_ObjectHideFlags: 0

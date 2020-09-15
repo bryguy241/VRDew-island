@@ -122,7 +122,18 @@ public class PlayerInput : MonoBehaviour
             }
         }
 
-
+        if (Input.GetMouseButton(1))
+        {
+           
+            if (currentTarget != null)
+            {
+               
+              if(currentTarget.GetComponent<TileSystem>().HarvestableTile())
+              {
+                currentTarget.GetComponent<TileSystem>().HarvestCollectable();
+              }
+            }
+        }
 
 
         #endregion
