@@ -7,10 +7,12 @@ public class HeldItems : MonoBehaviour
     public List<GameObject> equiptItems = new List<GameObject>();
     public int oldIndex = 0;
     public string EquiptItem;
+    public int EquiptItemTier = 1;
     // Start is called before the first frame update
     void Start()
     {
         EquiptItem = equiptItems[0].GetComponent<ItemStruct>().Name;
+        EquiptItemTier = equiptItems[0].GetComponent<ItemStruct>().Tier;
     }
 
     // Update is called once per frame
@@ -28,6 +30,7 @@ public class HeldItems : MonoBehaviour
             print(equiptItems[index]);
        
             EquiptItem = equiptItems[index].GetComponent<ItemStruct>().Name;
+            EquiptItemTier = equiptItems[index].GetComponent<ItemStruct>().Tier;
         }
         else
         {

@@ -26,7 +26,7 @@ public class PlayerInput : MonoBehaviour
     float time = 0;
 
     public GameObject currentTarget;
-
+    public GameObject currentInteractable;
 
     // Start is called before the first frame update
     void Start()
@@ -115,9 +115,10 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetMouseButton(0) && time + TimeBetweenClicks < Time.time)
         {
             time = Time.time;
-            if(heldItems.EquiptItem == "PickAxe")
+            if(currentTarget != null)
             {
-
+                print("clicking with the: " + heldItems.EquiptItem + " ||| trying to modify: " + currentTarget.name);
+                currentTarget.GetComponent<TileSystem>().HitMe(heldItems.EquiptItem, heldItems.EquiptItemTier);
             }
         }
 
