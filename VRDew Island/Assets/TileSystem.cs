@@ -53,6 +53,26 @@ public class TileSystem : MonoBehaviour
     public void SaveTileData()
     {
         PlayerPrefs.SetString("" + GetInstanceID(), JsonUtility.ToJson(tileData));
+
+        // things on tile
+        if (tileData.rockID != "-1")
+        {
+
+        }
+        else if (tileData.cropID != "-1")
+        {
+            crop.GetComponent<CropSystem>().SaveCropData(tileData.cropID);
+        }
+        else if (tileData.collectableID != "-1")
+        {
+
+        }
+        else if (tileData.treeID != "-1")
+        {
+
+        }
+
+
     }
 
     public void ReadTileData()
@@ -72,11 +92,11 @@ public class TileSystem : MonoBehaviour
             if(crop == null)
             {
                 crop = Instantiate(Resources.Load<GameObject>("Crops/" + tileData.cropType), transform.position, Quaternion.identity, transform);
-
+                crop.GetComponent<CropSystem>().ReadCropData(tileData.cropID);
             }
             //left off trying to get some form of planting mechanic in
 
-            //  crop.GetComponent<CropSystem>().ReadCropData(tileData.cropID);
+            
 
 
 
@@ -145,7 +165,7 @@ public class TileSystem : MonoBehaviour
             if (crop != null)
             {
                 print("I should grow the crop");
-               // crop.GetComponent<CropComponent>().GrowMe();
+                crop.GetComponent<CropSystem>().GrowMe();
             }
             tileData.watered = 0;
         

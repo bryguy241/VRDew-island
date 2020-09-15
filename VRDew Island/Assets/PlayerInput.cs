@@ -101,7 +101,7 @@ public class PlayerInput : MonoBehaviour
         #region scrolling through hotbar
         if (Input.mouseScrollDelta.y != 0)
         {
-            hotbarSelected = (hotbarSelected + (int)Input.mouseScrollDelta.y) % 8;
+            hotbarSelected = (hotbarSelected - (int)Input.mouseScrollDelta.y) % 8;
             if (hotbarSelected == -1)
                 hotbarSelected = 7;
             print(hotbarSelected);
