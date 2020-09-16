@@ -27,4 +27,18 @@ public class PlayerHitBoxHelper : MonoBehaviour
             playerInput.currentInteractable = other.gameObject;
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject == playerInput.currentTarget)
+        {
+            playerInput.currentTarget = null;
+        }
+
+        if (other.gameObject == playerInput.currentInteractable)
+        {
+            playerInput.currentInteractable = null;
+        }
+
+
+    }
 }

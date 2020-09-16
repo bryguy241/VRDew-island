@@ -75,7 +75,7 @@ public class CropSystem : MonoBehaviour
             parent.tileData.cropType = "";
             parent.SpawnCollectable(cropData.collectableName);
             PlayerPrefs.DeleteKey(parent.tileData.cropID);
-            Destroy(this);
+            Destroy(this.gameObject);
 
 
             print("CREATE PRODUCE COLLECTABLE");
