@@ -41,20 +41,19 @@ public class BuildingComponent : MonoBehaviour
         {
 
             bool withinRange = Vector3.Distance(transform.position, player.transform.position) <= maxUpgradeDistance;
-            bool canUpgrade = CanUpgrade();
             // Displays the appropriate overheard text
-            if (withinRange && !buildingCanvas.activeSelf && canUpgrade)
+            if (withinRange && !buildingCanvas.activeSelf)
             {
                 buildingCanvas.SetActive(true);
                 requiredMaterialText.color = Color.white;
                 pressEnterText.color = Color.white;
-            }
+            }/* If the text should change color
             else if (withinRange && !buildingCanvas.activeSelf && !canUpgrade)
             {
                 buildingCanvas.SetActive(true);
                 requiredMaterialText.color = Color.red;
                 pressEnterText.color = Color.grey;
-            }
+            }*/
             else if (!withinRange && buildingCanvas.activeSelf)
             {
                 buildingCanvas.SetActive(false);
@@ -62,7 +61,7 @@ public class BuildingComponent : MonoBehaviour
 
             if (withinRange)
             {
-                if (Input.GetKeyDown(KeyCode.Return) )// @ PRESTON && player.GetComponent<MainInventory>().CheckRequiredMaterials())
+                if (Input.GetKeyDown(KeyCode.Return) && CanUpgrade())
                 {
                     Upgrade();
                 }
@@ -86,7 +85,16 @@ public class BuildingComponent : MonoBehaviour
 
     private bool CanUpgrade()
     {
-        return true;
+        UpgradeMaterial[] requiredMaterials = upgrades[tier + 1].GetComponent<BuildingUpgrade>().requiredMaterials;
+        string[] items = new string[requiredMaterials.Length];
+        int[] counts = new int[requiredMaterials.Length];
+        for (int i = 0; i < requiredMaterials.Length; i++)
+        {
+            items[i] = requiredMaterials[i].item;
+            counts[i] = requiredMaterials[i].quantity;
+        }
+
+        return player.GetComponent<MainInventory>().CheckRequiredMaterials(items, counts);
     }
 
     private void UpdateRequiredMaterialsText()
