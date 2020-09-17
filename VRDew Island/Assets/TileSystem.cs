@@ -106,8 +106,8 @@ public class TileSystem : MonoBehaviour
             if (collectable == null)
             {
               collectable =  Instantiate(Resources.Load<GameObject>("Collectables/" + tileData.collectableType), transform.position, Quaternion.identity, transform); //load in the crop
-           //     collectable.GetComponent<CollectableSystem>().ReadCollectableData(tileData.collectableID);
-           //@TODO Make collectableSystem class with its data and how to manage that. 
+              collectable.GetComponent<CollectableSystem>().ReadCollectableData(tileData.collectableID);
+              //@TODO Make collectableSystem class with its data and how to manage that. 
 
             }
         }
@@ -199,26 +199,31 @@ public class TileSystem : MonoBehaviour
         return false;
     }
 
-    public ItemComponent HarvestCollectable()
+    public bool HarvestCollectable(MainInventory inventory)
     {
-        ItemComponent ic = new ItemComponent();
-        // @TODO ic.Name = collectable.GetComponent<CollectableSystem>().collectableData.itemName;
 
-        ic.Name = "Temp";
-      
+        bool answer = inventory.TryAddItem(collectable.GetComponent<CollectableSystem>().inventoryName);
 
-        PlayerPrefs.DeleteKey(tileData.collectableID);
+
+        if (answer)
+        {
+
+        
+            PlayerPrefs.DeleteKey(tileData.collectableID);
         Destroy(collectable);
 
         tileData.collectableID = "-1";
-        tileData.collectableType = "";
-        return ic;
+         tileData.collectableType = "";
+      }
+        print("i think that i am collecting: " + answer);
+       return answer;
+
     }
 
 
-    public void HitMe(string hitObj, int tier)
+    public void HitMe(ItemStruct hitObj)
     {
-        if (hitObj.Contains("Hoe"))
+        if (hitObj.Name.Contains("Hoe"))
         {
            tileData.tilled = 1;
 
@@ -227,25 +232,26 @@ public class TileSystem : MonoBehaviour
             TillTile();
 
         }
-        else if (hitObj.Contains("WoodAxe"))
+        else if (hitObj.Name.Contains("WoodAxe"))
         {
             CheckDestroyCrop();
         }
-        else if (hitObj.Contains("PickAxe"))
+        else if (hitObj.Name.Contains("PickAxe"))
         {
             CheckDestroyCrop();
         }
-        else if (hitObj.Contains("WateringCan"))
+        else if (hitObj.Name.Contains("WateringCan"))
         {
             tileData.watered = 1;
             WaterTile();
         }
-        else if (hitObj.Contains("Seed"))
+        else if (hitObj.Name.Contains("Seed"))
         {
             if(tileData.tilled == 1 && tileData.rockID == "-1" && tileData.cropID == "-1" && tileData.type =="farm" && tileData.treeID == "-1" && tileData.collectableID == "-1")
             {
-            
-                PlantCrop(hitObj);
+                print(((ItemComponent)hitObj).Name);
+                ((ItemComponent)hitObj).SubtractOne(); 
+                PlantCrop(hitObj.Name);
             }
 
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class PlayerInput : MonoBehaviour
     private Transform sphere;
     private float scale;
 
-    public HotBarInventory hotbarInventory;
+    public MainInventory mainInventory; 
+ //   public HotBarInventory hotbarInventory;
     public HeldItems heldItems;
     public float TimeBetweenClicks = .5f;
     float time = 0;
@@ -28,6 +30,9 @@ public class PlayerInput : MonoBehaviour
     public GameObject currentTarget;
     public GameObject currentInteractable;
 
+
+    public bool inventoryOpen = false;
+    public Image InventoryImage;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,8 +40,8 @@ public class PlayerInput : MonoBehaviour
         hitPoint = transform.forward;
 
         //set up initial chosen item
-        heldItems.ActivateItem(0);
-        hotbarInventory.selectionIndicator.transform.position = hotbarInventory.HotBarButtons[0].transform.position;
+        mainInventory.hotBarInventory.ActivateItem(0);
+        mainInventory.hotBarInventory.selectionIndicator.transform.position = mainInventory.hotBarInventory.HotBarButtons[0].transform.position;
     }
 
     // Update is called once per frame
@@ -92,7 +97,6 @@ public class PlayerInput : MonoBehaviour
         {
 
             targetRotation = Quaternion.LookRotation(movementDir);
-            print(targetRotation);
         }
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
         #endregion
@@ -101,28 +105,28 @@ public class PlayerInput : MonoBehaviour
         #region scrolling through hotbar
         if (Input.mouseScrollDelta.y != 0)
         {
+            int numItems = HotBarInventory.nextOpen;
             hotbarSelected = (hotbarSelected - (int)Input.mouseScrollDelta.y) % 8;
             if (hotbarSelected == -1)
                 hotbarSelected = 7;
-            print(hotbarSelected);
-            hotbarInventory.selectionIndicator.transform.position = hotbarInventory.HotBarButtons[hotbarSelected].transform.position;
-            heldItems.ActivateItem(hotbarSelected);
+            mainInventory.hotBarInventory.selectionIndicator.transform.position = mainInventory.hotBarInventory.HotBarButtons[hotbarSelected].transform.position;
+            mainInventory.hotBarInventory.ActivateItem(hotbarSelected);
         }
 
         #endregion
 
         #region Click Controls
-        if (Input.GetMouseButton(0) && time + TimeBetweenClicks < Time.time)
+        if (Input.GetMouseButtonDown(0) && time + TimeBetweenClicks < Time.time)
         {
             time = Time.time;
             if(currentTarget != null)
             {
-                print("clicking with the: " + heldItems.EquiptItem + " ||| trying to modify: " + currentTarget.name);
-                currentTarget.GetComponent<TileSystem>().HitMe(heldItems.EquiptItem, heldItems.EquiptItemTier);
+                print("clicking with the: " + mainInventory.hotBarInventory.equiptItem + " ||| trying to modify: " + currentTarget.name);
+                currentTarget.GetComponent<TileSystem>().HitMe(mainInventory.hotBarInventory.equiptItem);
             }
         }
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1)) // @PRESTON USE THIS 
         {
            
             if (currentTarget != null)
@@ -130,14 +134,30 @@ public class PlayerInput : MonoBehaviour
                
               if(currentTarget.GetComponent<TileSystem>().HarvestableTile())
               {
-                currentTarget.GetComponent<TileSystem>().HarvestCollectable();
-              }
+                    print("stage1");
+                currentTarget.GetComponent<TileSystem>().HarvestCollectable(mainInventory);
+                    print("stage1");
+                }
             }
         }
 
 
         #endregion
 
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ToggleInventory();
+        }
+
+    }
+
+    public void ToggleInventory()
+    {
+        inventoryOpen = !inventoryOpen;
+        InventoryImage.gameObject.SetActive(inventoryOpen);
+
+        
     }
 
 

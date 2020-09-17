@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5388798994781454289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5388798994781454302}
+  - component: {fileID: 5388798994781454303}
+  m_Layer: 0
+  m_Name: PickAxe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5388798994781454302
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5388798994781454289}
+  m_LocalRotation: {x: 0.19136524, y: 0.1939664, z: 0.03860922, w: 0.9613874}
+  m_LocalPosition: {x: -0.44999695, y: 0.09000015, z: 0.5200043}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5567123548690362737}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 20.669, y: 24.482, z: 9.1310005}
+--- !u!114 &5388798994781454303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5388798994781454289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66157d0c61f25c14c930fd188c28cc10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: PickAxe
+  Tier: 1
+  Icon: {fileID: 21300000, guid: 568ba5b7b4f89a8459e702f5fcc18e24, type: 3}
+  MyPrefab: {fileID: 5388798994781454289}
+--- !u!1001 &5388798994260154010
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5388798994781454302}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: fc80637eb6c4fa4488c57a5462643eda,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc80637eb6c4fa4488c57a5462643eda,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc80637eb6c4fa4488c57a5462643eda,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc80637eb6c4fa4488c57a5462643eda,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc80637eb6c4fa4488c57a5462643eda,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc80637eb6c4fa4488c57a5462643eda,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc80637eb6c4fa4488c57a5462643eda,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc80637eb6c4fa4488c57a5462643eda,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc80637eb6c4fa4488c57a5462643eda,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc80637eb6c4fa4488c57a5462643eda,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc80637eb6c4fa4488c57a5462643eda,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc80637eb6c4fa4488c57a5462643eda,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2965
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc80637eb6c4fa4488c57a5462643eda,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2965
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc80637eb6c4fa4488c57a5462643eda,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2965
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fc80637eb6c4fa4488c57a5462643eda,
+        type: 3}
+      propertyPath: m_Name
+      value: WoodPick
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fc80637eb6c4fa4488c57a5462643eda, type: 3}
+--- !u!4 &5567123548690362737 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fc80637eb6c4fa4488c57a5462643eda,
+    type: 3}
+  m_PrefabInstance: {fileID: 5388798994260154010}
+  m_PrefabAsset: {fileID: 0}

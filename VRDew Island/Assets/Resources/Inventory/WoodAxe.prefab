@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7098039212787312061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7098039212787312060}
+  - component: {fileID: 7098039212787312063}
+  m_Layer: 0
+  m_Name: WoodAxe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &7098039212787312060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7098039212787312061}
+  m_LocalRotation: {x: 0.058173787, y: 0.07209349, z: -0.014734435, w: 0.9955909}
+  m_LocalPosition: {x: -0.8884201, y: 0.119035006, z: 1.0797577}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7281182000707277140}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 6.774, y: 8.212001, z: -1.2090001}
+--- !u!114 &7098039212787312063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7098039212787312061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66157d0c61f25c14c930fd188c28cc10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: WoodAxe
+  Tier: 1
+  Icon: {fileID: 21300000, guid: 053f6bb440f76bd42b07e2273fc342fb, type: 3}
+  MyPrefab: {fileID: 7098039212787312061}
+--- !u!1001 &7098039213318043327
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7098039212787312060}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: a938e727cc83b604c8c89a5a54209e67,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a938e727cc83b604c8c89a5a54209e67,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.47
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a938e727cc83b604c8c89a5a54209e67,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a938e727cc83b604c8c89a5a54209e67,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.066511065
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a938e727cc83b604c8c89a5a54209e67,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9800024
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a938e727cc83b604c8c89a5a54209e67,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.16666102
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a938e727cc83b604c8c89a5a54209e67,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.08599906
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a938e727cc83b604c8c89a5a54209e67,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a938e727cc83b604c8c89a5a54209e67,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -18.374
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a938e727cc83b604c8c89a5a54209e67,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 168.406
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a938e727cc83b604c8c89a5a54209e67,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 9.647
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a938e727cc83b604c8c89a5a54209e67,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.087033816
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a938e727cc83b604c8c89a5a54209e67,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.087033816
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a938e727cc83b604c8c89a5a54209e67,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.087033816
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a938e727cc83b604c8c89a5a54209e67,
+        type: 3}
+      propertyPath: m_Name
+      value: WoodAxe
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a938e727cc83b604c8c89a5a54209e67, type: 3}
+--- !u!4 &7281182000707277140 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a938e727cc83b604c8c89a5a54209e67,
+    type: 3}
+  m_PrefabInstance: {fileID: 7098039213318043327}
+  m_PrefabAsset: {fileID: 0}

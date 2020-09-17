@@ -103,6 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5358662873382518038}
   - component: {fileID: 5358662873382518039}
+  - component: {fileID: 4630660686431866238}
   m_Layer: 0
   m_Name: Yam_Collectable
   m_TagString: Untagged
@@ -139,3 +140,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Yam_Seed
   Tier: 1
+  Quantity: 1
+  Icon: {fileID: 0}
+  MyPrefab: {fileID: 0}
+--- !u!114 &4630660686431866238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5358662873382518057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2ecdfb53afa174ebacac772238b9e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tier: 1
+  collectableType: Yam_Collectable
+  inventoryName: Yam
+  collectableID: -1
+  collectableImage: {fileID: 0}
