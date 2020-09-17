@@ -35,6 +35,7 @@ public class MainInventory : MonoBehaviour
     {
         if (hotBarInventory.CheckRequiredMaterials(requirements, amounts))
         {
+            print("CheckRequiredMaterials");
             return true;
         }
         // CHECK MAIN INVENTROY EVENTUALLY

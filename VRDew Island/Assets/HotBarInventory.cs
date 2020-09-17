@@ -272,17 +272,22 @@ public class HotBarInventory : MonoBehaviour
         foreach (GameObject g in equiptItems)
         {
             int itemSlot = 0;
-            foreach(string s in requirements)
+            int counter = 0;
+            foreach (string s in requirements)
             {
-                int counter = 0;
                 try
                 {
                     if (g.GetComponent<ItemStruct>().Name == s)
                     {
-                      if(g.GetComponent<ItemComponent>().Quantity >= amounts[counter])
+                        print("s: " + s + " g: " + g.GetComponent<ItemStruct>().Name);
+                        print("left: " + g.GetComponent<ItemComponent>().Quantity + " right: " + amounts[counter]);
+                        if (g.GetComponent<ItemComponent>().Quantity >= amounts[counter])
                         {
+                            print("Found item " + g.GetComponent<ItemComponent>().Name);
                             requirementsMet[counter] = true;
-                            chosenOnes[itemSlot] = g.GetComponent<ItemComponent>();
+                            print("chosenones " + chosenOnes.Length);
+                            chosenOnes[counter] = g.GetComponent<ItemComponent>();
+                            print("Got here");
                             truecounter++;
                         }
                     }
@@ -303,11 +308,13 @@ public class HotBarInventory : MonoBehaviour
         {
             for(int i = 0; i < chosenOnes.Length; i++)
             {
+                print("chosenones name " + chosenOnes[i].Name);
                 chosenOnes[i].Quantity -= amounts[i];
+                UpdateAmounts();
             }
         }
 
-
+        print("true counter: " + truecounter);
         return truecounter == requirementsMet.Length;
     }
 
