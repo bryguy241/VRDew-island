@@ -42,7 +42,11 @@ public class CropSystem : MonoBehaviour
     public void CheckGrowth()
     {
         print("I am on day: " + cropData.currentDays + " and I checking vs + " + cropData.totalDays / 3);
-        if (cropData.currentDays <= (cropData.totalDays - 1) / 3)
+        if (cropData.currentDays == 0)
+        {
+
+        }
+        else if (cropData.currentDays <= (cropData.totalDays - 1) / 3)
         {
             print("stage1");
             SeedStage.gameObject.SetActive(true);
