@@ -292,7 +292,7 @@ RectTransform:
   m_Children:
   - {fileID: 2136285182631845313}
   m_Father: {fileID: 2136285183430649493}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -404,7 +404,7 @@ Transform:
   m_LocalScale: {x: 3, y: 5, z: 3}
   m_Children: []
   m_Father: {fileID: 2136285183430649493}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2136285183117750456
 MeshFilter:
@@ -511,6 +511,7 @@ Transform:
   m_LocalPosition: {x: 97.6, y: 4.05, z: -135.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 8857811680218528500}
   - {fileID: 2136285183663180339}
   - {fileID: 2136285183117750455}
   - {fileID: 2136285182903333465}
@@ -571,7 +572,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 2136285183430649493}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2136285183663180340
 MeshFilter:
@@ -724,3 +725,78 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Required materials:'
+--- !u!1001 &4582395047439405550
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2136285183430649493}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: ce4eb7cf32d3e314fa28ac8b16e873e1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ce4eb7cf32d3e314fa28ac8b16e873e1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ce4eb7cf32d3e314fa28ac8b16e873e1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ce4eb7cf32d3e314fa28ac8b16e873e1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ce4eb7cf32d3e314fa28ac8b16e873e1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ce4eb7cf32d3e314fa28ac8b16e873e1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ce4eb7cf32d3e314fa28ac8b16e873e1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ce4eb7cf32d3e314fa28ac8b16e873e1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ce4eb7cf32d3e314fa28ac8b16e873e1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ce4eb7cf32d3e314fa28ac8b16e873e1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ce4eb7cf32d3e314fa28ac8b16e873e1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ce4eb7cf32d3e314fa28ac8b16e873e1,
+        type: 3}
+      propertyPath: m_Name
+      value: Caravel_prototype_Ke_Shen
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ce4eb7cf32d3e314fa28ac8b16e873e1, type: 3}
+--- !u!4 &8857811680218528500 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: ce4eb7cf32d3e314fa28ac8b16e873e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 4582395047439405550}
+  m_PrefabAsset: {fileID: 0}
