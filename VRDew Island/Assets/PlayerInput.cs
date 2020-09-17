@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -46,18 +44,18 @@ public class PlayerInput : MonoBehaviour
         currentDir = transform.forward;
         movementDir = Vector3.zero;
         plane.SetNormalAndPosition(Vector3.up, transform.position);
-        
-    #region WASD controls
+
+        #region WASD controls
         if (Input.GetKey(KeyCode.A))
             // rb.AddForce(Vector3.left * Speed);
             movementDir += Vector3.left * Speed;
-            if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
             movementDir += Vector3.right * Speed;
-            if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
             movementDir += Vector3.forward * Speed;
-            if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
             movementDir += Vector3.back * Speed;
-            rb.velocity = movementDir;
+        rb.velocity = movementDir;
 
         #endregion
 
@@ -115,7 +113,7 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetMouseButton(0) && time + TimeBetweenClicks < Time.time)
         {
             time = Time.time;
-            if(currentTarget != null)
+            if (currentTarget != null)
             {
                 print("clicking with the: " + heldItems.EquiptItem + " ||| trying to modify: " + currentTarget.name);
                 currentTarget.GetComponent<TileSystem>().HitMe(heldItems.EquiptItem, heldItems.EquiptItemTier);
@@ -124,14 +122,14 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetMouseButton(1))
         {
-           
+
             if (currentTarget != null)
             {
-               
-              if(currentTarget.GetComponent<TileSystem>().HarvestableTile())
-              {
-                currentTarget.GetComponent<TileSystem>().HarvestCollectable();
-              }
+
+                if (currentTarget.GetComponent<TileSystem>().HarvestableTile())
+                {
+                    currentTarget.GetComponent<TileSystem>().HarvestCollectable();
+                }
             }
         }
 

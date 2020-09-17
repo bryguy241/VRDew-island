@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-interface ItemStruct
+﻿interface ItemStruct
 {
 
     string Name { get; set; }

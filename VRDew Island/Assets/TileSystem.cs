@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -24,7 +22,7 @@ public class TileSystem : MonoBehaviour
     {
         tileData.type = tileType;
         print("id for tile is :" + GetInstanceID());
-        if(PlayerPrefs.GetString(""+ GetInstanceID(),"none") != "none") // if we have a save
+        if (PlayerPrefs.GetString("" + GetInstanceID(), "none") != "none") // if we have a save
         {
 
             // pull in the data stored with this
@@ -40,7 +38,7 @@ public class TileSystem : MonoBehaviour
           */
             ReadTileData();
 
-         
+
 
         }
         else
@@ -79,7 +77,7 @@ public class TileSystem : MonoBehaviour
     {
         TillTile();
         WaterTile();
-        
+
 
 
         // things on tile
@@ -87,31 +85,31 @@ public class TileSystem : MonoBehaviour
         {
 
         }
-        else if(tileData.cropID != "-1")
+        else if (tileData.cropID != "-1")
         {
-            if(crop == null)
+            if (crop == null)
             {
                 crop = Instantiate(Resources.Load<GameObject>("Crops/" + tileData.cropType), transform.position, Quaternion.identity, transform);
                 crop.GetComponent<CropSystem>().ReadCropData(tileData.cropID);
             }
             //left off trying to get some form of planting mechanic in
 
-            
+
 
 
 
         }
-        else if(tileData.collectableID != "-1")
+        else if (tileData.collectableID != "-1")
         {
             if (collectable == null)
             {
-              collectable =  Instantiate(Resources.Load<GameObject>("Collectables/" + tileData.collectableType), transform.position, Quaternion.identity, transform); //load in the crop
-           //     collectable.GetComponent<CollectableSystem>().ReadCollectableData(tileData.collectableID);
-           //@TODO Make collectableSystem class with its data and how to manage that. 
+                collectable = Instantiate(Resources.Load<GameObject>("Collectables/" + tileData.collectableType), transform.position, Quaternion.identity, transform); //load in the crop
+                                                                                                                                                                       //     collectable.GetComponent<CollectableSystem>().ReadCollectableData(tileData.collectableID);
+                                                                                                                                                                       //@TODO Make collectableSystem class with its data and how to manage that. 
 
             }
         }
-        else if(tileData.treeID != "-1")
+        else if (tileData.treeID != "-1")
         {
 
         }
@@ -164,8 +162,8 @@ public class TileSystem : MonoBehaviour
 
     public void PlantCrop(string plantName)
     {
-        
-        crop = Instantiate(Resources.Load<GameObject>("Crops/" + plantName), transform.position,Quaternion.identity, transform); //load in the crop
+
+        crop = Instantiate(Resources.Load<GameObject>("Crops/" + plantName), transform.position, Quaternion.identity, transform); //load in the crop
         tileData.cropID = "" + crop.gameObject.GetInstanceID();
         tileData.cropType = plantName;
         crop.GetComponent<CropSystem>().InitializeCrop();
@@ -176,7 +174,7 @@ public class TileSystem : MonoBehaviour
     }
     public void GrowTile()
     {
-        if(tileData.watered == 1)
+        if (tileData.watered == 1)
         {
             if (crop != null)
             {
@@ -184,14 +182,14 @@ public class TileSystem : MonoBehaviour
                 crop.GetComponent<CropSystem>().GrowMe();
             }
             tileData.watered = 0;
-        
+
 
         }
     }
 
     public bool HarvestableTile()
     {
-        if(tileData.collectableID != "-1")
+        if (tileData.collectableID != "-1")
         {
             return true;
         }
@@ -205,7 +203,7 @@ public class TileSystem : MonoBehaviour
         // @TODO ic.Name = collectable.GetComponent<CollectableSystem>().collectableData.itemName;
 
         ic.Name = "Temp";
-      
+
 
         PlayerPrefs.DeleteKey(tileData.collectableID);
         Destroy(collectable);
@@ -220,9 +218,9 @@ public class TileSystem : MonoBehaviour
     {
         if (hitObj.Contains("Hoe"))
         {
-           tileData.tilled = 1;
+            tileData.tilled = 1;
 
-       
+
 
             TillTile();
 
@@ -242,9 +240,9 @@ public class TileSystem : MonoBehaviour
         }
         else if (hitObj.Contains("Seed"))
         {
-            if(tileData.tilled == 1 && tileData.rockID == "-1" && tileData.cropID == "-1" && tileData.type =="farm" && tileData.treeID == "-1" && tileData.collectableID == "-1")
+            if (tileData.tilled == 1 && tileData.rockID == "-1" && tileData.cropID == "-1" && tileData.type == "farm" && tileData.treeID == "-1" && tileData.collectableID == "-1")
             {
-            
+
                 PlantCrop(hitObj);
             }
 
@@ -256,13 +254,13 @@ public class TileSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
 [Serializable]
 public class TileData
 {
-   // implement these later. Scope Bryan
+    // implement these later. Scope Bryan
     //public TreeComponent tree;
     //  public RockComponent rock;
     //  public GameObject collectable;
@@ -273,7 +271,7 @@ public class TileData
     public string type = "";
 
     public string treeType = "";
-    public string treeID = ""+ -1;
+    public string treeID = "" + -1;
 
     public string cropType = "";
     public string cropID = "" + -1;
