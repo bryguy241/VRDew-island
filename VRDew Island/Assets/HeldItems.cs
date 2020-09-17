@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class HeldItems : MonoBehaviour
@@ -18,7 +17,7 @@ public class HeldItems : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void ActivateItem(int index)
     {
@@ -28,7 +27,7 @@ public class HeldItems : MonoBehaviour
         {
             equiptItems[index].gameObject.SetActive(true);
             print(equiptItems[index]);
-       
+
             EquiptItem = equiptItems[index].GetComponent<ItemStruct>().Name;
             EquiptItemTier = equiptItems[index].GetComponent<ItemStruct>().Tier;
         }
@@ -36,8 +35,8 @@ public class HeldItems : MonoBehaviour
         {
             EquiptItem = "";
         }
-           
-       oldIndex = index;
+
+        oldIndex = index;
 
     }
 }
