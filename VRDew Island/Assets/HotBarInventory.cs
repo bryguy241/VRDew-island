@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class HotBarInventory : MonoBehaviour
 {
     public Button[] HotBarButtons = new Button[8];
-    public static TextMeshProUGUI[] Quantities = new TextMeshProUGUI[8];
+    public static Text[] Quantities = new Text[8];
     public static GameObject[] equiptItems = new GameObject[8];
     public Image selectionIndicator;
     public static int nextOpen = 0;
@@ -26,8 +26,8 @@ public class HotBarInventory : MonoBehaviour
 
         for (int i = 0; i < 8; i++)
         {
-            print(HotBarButtons[i].GetComponentInChildren<TextMeshProUGUI>().text);
-            Quantities[i] = HotBarButtons[i].GetComponentInChildren<TextMeshProUGUI>();
+            print(HotBarButtons[i].GetComponentInChildren<Text>().text);
+            Quantities[i] = HotBarButtons[i].GetComponentInChildren<Text>();
         }
         if (PlayerPrefs.GetString("" + GetInstanceID(), "none") != "none") // if we have a save
         {

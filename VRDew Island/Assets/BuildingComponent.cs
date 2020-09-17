@@ -10,7 +10,7 @@ public class BuildingComponent : MonoBehaviour
     public Text requiredMaterialText;
     public Text pressEnterText;
     public GameObject buildingCanvas;
-    public GameObject player;
+    public GameObject player; 
     public GameObject[] upgrades;
 
     // Start is called before the first frame update
@@ -60,9 +60,9 @@ public class BuildingComponent : MonoBehaviour
                 buildingCanvas.SetActive(false);
             }
 
-            if (withinRange && CanUpgrade())
+            if (withinRange)
             {
-                if (Input.GetKeyDown(KeyCode.Return) && canUpgrade)
+                if (Input.GetKeyDown(KeyCode.Return) )// @ PRESTON && player.GetComponent<MainInventory>().CheckRequiredMaterials())
                 {
                     Upgrade();
                 }
