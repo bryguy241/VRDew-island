@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 
+[Serializable]
 public class BuildingComponent : MonoBehaviour
 {
 
     public string buildingName;
-    public int tier = 0;
+    public int startingTier = 0;
     public float maxUpgradeDistance = 5f;
     public Text requiredMaterialText;
     public Text pressEnterText;
@@ -13,14 +15,30 @@ public class BuildingComponent : MonoBehaviour
     public GameObject player; 
     public GameObject[] upgrades;
 
+    private BuildingData buildingData;
+
     // Start is called before the first frame update
     void Start()
     {
         buildingCanvas.SetActive(false);
 
+        // Saving
+        if (PlayerPrefs.GetString(GetInstanceID() + "", "none") != "none")
+        {
+            buildingData = JsonUtility.FromJson<BuildingData>(PlayerPrefs.GetString(GetInstanceID() + ""));
+            LoadBuildingData();
+        }
+        else
+        {
+            buildingData = new BuildingData();
+            buildingData.tier = startingTier;
+            buildingData.transform = transform;
+            PlayerPrefs.SetString(GetInstanceID() + "", JsonUtility.ToJson(buildingData));
+        }
+
         for (int i = 0; i < upgrades.Length; i++)
         {
-            if (i == tier)
+            if (i == buildingData.tier)
             {
                 upgrades[i].SetActive(true);
             }
@@ -37,7 +55,7 @@ public class BuildingComponent : MonoBehaviour
     void Update()
     {
         // Checks if it has additional upgrades
-        if (tier < upgrades.Length - 1)
+        if (buildingData.tier < upgrades.Length - 1)
         {
 
             bool withinRange = Vector3.Distance(transform.position, player.transform.position) <= maxUpgradeDistance;
@@ -71,21 +89,34 @@ public class BuildingComponent : MonoBehaviour
 
     }
 
+    public void LoadBuildingData()
+    {
+        transform.position = buildingData.transform.position;
+        transform.rotation = buildingData.transform.rotation;
+        transform.localScale = buildingData.transform.localScale;
+    }
+
+    public void SaveBuilding()
+    {
+        buildingData.transform = transform;
+        PlayerPrefs.SetString(GetInstanceID() + "", JsonUtility.ToJson(buildingData));
+    }
+
     private void Upgrade()
     {
         print("Upgrade Building");
-        tier++;
+        buildingData.tier++;
         buildingCanvas.SetActive(false);
 
-        upgrades[tier - 1].SetActive(false);
-        upgrades[tier].SetActive(true);
+        upgrades[buildingData.tier - 1].SetActive(false);
+        upgrades[buildingData.tier].SetActive(true);
 
         UpdateRequiredMaterialsText();
     }
 
     private bool CanUpgrade()
     {
-        UpgradeMaterial[] requiredMaterials = upgrades[tier + 1].GetComponent<BuildingUpgrade>().requiredMaterials;
+        UpgradeMaterial[] requiredMaterials = upgrades[buildingData.tier + 1].GetComponent<BuildingUpgrade>().requiredMaterials;
         string[] items = new string[requiredMaterials.Length];
         int[] counts = new int[requiredMaterials.Length];
         for (int i = 0; i < requiredMaterials.Length; i++)
@@ -100,9 +131,9 @@ public class BuildingComponent : MonoBehaviour
     private void UpdateRequiredMaterialsText()
     {
         string material = "";
-        if (tier + 1 < upgrades.Length)
+        if (buildingData.tier + 1 < upgrades.Length)
         {
-            UpgradeMaterial[] requiredMaterials = upgrades[tier + 1].GetComponent<BuildingUpgrade>().requiredMaterials;
+            UpgradeMaterial[] requiredMaterials = upgrades[buildingData.tier + 1].GetComponent<BuildingUpgrade>().requiredMaterials;
             for (int i = 0; i < requiredMaterials.Length; i++)
             {
                 material += requiredMaterials[i].quantity + " " + requiredMaterials[i].item;
@@ -117,4 +148,11 @@ public class BuildingComponent : MonoBehaviour
         requiredMaterialText.text = material;
     }
 
+}
+
+[Serializable]
+public class BuildingData
+{
+    public int tier = 0;
+    public Transform transform;
 }
