@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: PickAxe
   Tier: 1
-  Icon: {fileID: 21300000, guid: 568ba5b7b4f89a8459e702f5fcc18e24, type: 3}
+  Icon: {fileID: 21300000, guid: 2668b03a905d650468bae55aa90e15f4, type: 3}
   MyPrefab: {fileID: 5388798994781454289}
 --- !u!1001 &3167752294383412185
 PrefabInstance:

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3134852812999667032}
   - component: {fileID: 3134852812999667033}
   m_Layer: 0
-  m_Name: Yam_Collectable
+  m_Name: Yam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   Name: Yam
   Tier: 1
   Quantity: 1
-  Icon: {fileID: 21300000, guid: 2df35753c63b1c847b122c1831242c41, type: 3}
+  Icon: {fileID: 21300000, guid: ca33c9ce4b3b1544a900e9714f998665, type: 3}
   MyPrefab: {fileID: 3134852812999667047}
 --- !u!1 &7648555078423507478
 GameObject:

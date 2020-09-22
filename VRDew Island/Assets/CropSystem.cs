@@ -10,6 +10,7 @@ public class CropSystem : MonoBehaviour
     public int currentDays;
     public string collectableName;
 
+    public GameObject justPlanted;
     public GameObject SeedStage;
     public GameObject SproutStage;
     public GameObject AlmostFullStage;
@@ -44,11 +45,15 @@ public class CropSystem : MonoBehaviour
         print("I am on day: " + cropData.currentDays + " and I checking vs + " + cropData.totalDays / 3);
         if (cropData.currentDays == 0)
         {
-
+            justPlanted.gameObject.SetActive(true);
+            SeedStage.gameObject.SetActive(false);
+            SproutStage.gameObject.SetActive(false);
+            AlmostFullStage.gameObject.SetActive(false);
         }
         else if (cropData.currentDays <= (cropData.totalDays - 1) / 3)
         {
             print("stage1");
+            justPlanted.gameObject.SetActive(false);
             SeedStage.gameObject.SetActive(true);
             SproutStage.gameObject.SetActive(false);
             AlmostFullStage.gameObject.SetActive(false);

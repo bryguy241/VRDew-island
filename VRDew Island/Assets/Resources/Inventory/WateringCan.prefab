@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: WateringCan
   Tier: 1
-  Icon: {fileID: 21300000, guid: 8177146e172e5784cb99e0c69e17a1a2, type: 3}
+  Icon: {fileID: 21300000, guid: b6b341b45ad147a46baf0712188e9918, type: 3}
   MyPrefab: {fileID: 3389789607222753779}
 --- !u!1001 &3389789607777205576
 PrefabInstance:

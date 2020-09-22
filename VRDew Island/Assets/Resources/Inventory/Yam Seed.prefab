@@ -234,5 +234,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Yam Seed
   Tier: 1
-  Icon: {fileID: 21300000, guid: aa80b5ae56634f247bfb4a3b27ce9f54, type: 3}
+  Quantity: 1
+  Icon: {fileID: 21300000, guid: 165edf149cbe8644eb37e2d718f38652, type: 3}
   MyPrefab: {fileID: 3140698857403604394}

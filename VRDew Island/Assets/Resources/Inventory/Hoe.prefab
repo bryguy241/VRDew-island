@@ -235,7 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Hoe
   Tier: 1
-  Icon: {fileID: 21300000, guid: 17e2965b140772349ad8f8ebdc476a1c, type: 3}
+  Icon: {fileID: 21300000, guid: bd22dfc693acfc945be063921074931f, type: 3}
   MyPrefab: {fileID: 2564188418195460319}
 --- !u!1001 &2564188417607855122
 PrefabInstance:
